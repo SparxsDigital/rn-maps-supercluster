@@ -35,8 +35,7 @@ export default class ClusteredMapView extends PureComponent {
 
     this.mapRef = this.mapRef.bind(this)
     this.onClusterPress = this.onClusterPress.bind(this)
-      this.onRegionChangeComplete = this.onRegionChangeComplete.bind(this)
-      console.log('HELLO');
+    this.onRegionChangeComplete = this.onRegionChangeComplete.bind(this)
   }
 
   componentDidMount() {
@@ -88,7 +87,7 @@ export default class ClusteredMapView extends PureComponent {
       data = this.getClusters(region)
       this.setState({ region, data })
     }
-    this.props.onRegionChangeComplete && this.props.onRegionChangeComplete(region, data)
+    this.props.onRegionChangeComplete
   }
 
   getClusters = (region) => {
