@@ -35,7 +35,8 @@ export default class ClusteredMapView extends PureComponent {
 
     this.mapRef = this.mapRef.bind(this)
     this.onClusterPress = this.onClusterPress.bind(this)
-    this.onRegionChangeComplete = this.onRegionChangeComplete.bind(this)
+      this.onRegionChangeComplete = this.onRegionChangeComplete.bind(this)
+      console.log('HELLO');
   }
 
   componentDidMount() {
