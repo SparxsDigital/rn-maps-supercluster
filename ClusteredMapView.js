@@ -87,7 +87,7 @@ export default class ClusteredMapView extends PureComponent {
       data = this.getClusters(region)
       this.setState({ region, data })
     }
-    this.props.onRegionChangeComplete
+    this.props.onRegionChangeComplete();
   }
 
   getClusters = (region) => {
