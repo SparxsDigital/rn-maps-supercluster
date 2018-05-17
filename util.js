@@ -68,7 +68,7 @@ export const itemToGeoJSONFeature = (item) => ({
   type: 'Feature',
   geometry: {
     type: 'Point',
-    coordinates: [item.longitude, item.latitude]
+    coordinates: [parseFloat(item.longitude), parseFloat(item.latitude)]
   },
   properties: { point_count: 0, item } // eslint-disable-line camelcase
 })
