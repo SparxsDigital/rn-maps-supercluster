@@ -111,7 +111,12 @@ export default class ClusteredMapView extends PureComponent {
       const children = this.index.getLeaves(cluster.properties.cluster_id, this.props.clusterPressMaxChildren),
             markers = children
 
-      const markMap = markers.map((m) => m.geometry.coordinates );
+      const markMap = markers.map((m) => {
+          return {
+              latitude: m.geometry.coordinates[0],
+              longitude: m.geometry.coordinates[1]
+          }
+      });
 
       console.log(markMap);
       // fit right around them, considering edge padding
