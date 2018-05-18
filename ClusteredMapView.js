@@ -109,10 +109,10 @@ export default class ClusteredMapView extends PureComponent {
     // //////////////////////////////////////////////////////////////////////////////////
     // get cluster children
     const children = this.index.getLeaves(cluster.properties.cluster_id, this.props.clusterPressMaxChildren),
-          markers = children
+          markers = children;
 
     // fit right around them, considering edge padding
-    this.mapview.fitToCoordinates(markers.map(m => { latitude: parseFloat(m.geometry.coordinates.latitude), longitude: parseFloat(m.geometry.coordinates.longitude)}), { edgePadding: this.props.edgePadding })
+    this.mapview.fitToCoordinates(markers.map(m => { latitude: parseFloat(m.geometry.coordinates.latitude), longitude: parseFloat(m.geometry.coordinates.longitude)}), { edgePadding: this.props.edgePadding });
 
     this.props.onClusterPress && this.props.onClusterPress(cluster.properties.cluster_id, markers)
   }
