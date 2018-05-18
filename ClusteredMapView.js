@@ -134,7 +134,7 @@ export default class ClusteredMapView extends PureComponent {
         {
           this.props.clusteringEnabled && this.state.data.map((d) => {
             if (d.properties.point_count === 0)
-              return this.props.renderMarker(d)
+              return (this.props.renderMarker(d));
 
             return (
               <ClusterMarker
