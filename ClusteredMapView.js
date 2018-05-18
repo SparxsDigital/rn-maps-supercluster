@@ -43,7 +43,7 @@ export default class ClusteredMapView extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.data !== nextProps.data)
+    if (this.props.data !== nextProps.data) // might be able to get rid of this comparison as the wrecks data won't change once loaded!
       this.clusterize(nextProps.data)
   }
 
@@ -126,7 +126,7 @@ export default class ClusteredMapView extends PureComponent {
         {
           this.props.clusteringEnabled && this.state.data.map((d) => {
             if (d.properties.point_count === 0)
-              return this.props.renderMarker(d.properties.item)
+              return this.props.renderMarker(d)
 
             return (
               <ClusterMarker
