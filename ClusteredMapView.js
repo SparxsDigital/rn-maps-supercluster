@@ -70,10 +70,9 @@ export default class ClusteredMapView extends PureComponent {
     })
 
     // get formatted GeoPoints for cluster
-    const rawData = dataset.map(itemToGeoJSONFeature)
 
     // load geopoints into SuperCluster
-    this.index.load(rawData)
+    this.index.load(dataset) // yikes -- 24,000 wrecks go in here... D:
 
     const data = this.getClusters(this.state.region)
     this.setState({ data })
