@@ -113,8 +113,8 @@ export default class ClusteredMapView extends PureComponent {
 
       const markMap = markers.map((m) => {
           return {
-              latitude: m.geometry.coordinates[0],
-              longitude: m.geometry.coordinates[1]
+              latitude: m.geometry.coordinates[1],
+              longitude: m.geometry.coordinates[0]
           }
       });
 
