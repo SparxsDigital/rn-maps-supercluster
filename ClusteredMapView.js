@@ -100,9 +100,10 @@ export default class ClusteredMapView extends PureComponent {
 
     // cluster press behavior might be extremely custom.
     if (!this.props.preserveClusterPressBehavior) {
-      this.props.onClusterPress && this.props.onClusterPress(cluster.properties.cluster_id)
-      return
+        this.props.onClusterPress && this.props.onClusterPress(cluster.properties.cluster_id)
+        return
     }
+
 
       // //////////////////////////////////////////////////////////////////////////////////
       // NEW IMPLEMENTATION (with fitToCoordinates)
@@ -110,6 +111,8 @@ export default class ClusteredMapView extends PureComponent {
       // get cluster children
       const children = this.index.getLeaves(cluster.properties.cluster_id, this.props.clusterPressMaxChildren),
             markers = children
+
+      this.props.onClusterPress && this.props.onClusterPress(cluster.properties.cluster_id, markers)
 
       const markMap = markers.map((m) => {
           return {
@@ -121,8 +124,6 @@ export default class ClusteredMapView extends PureComponent {
       console.log(markMap);
       // fit right around them, considering edge padding
       this.mapview.fitToCoordinates(markMap, { edgePadding: this.props.edgePadding })
-
-    this.props.onClusterPress && this.props.onClusterPress(cluster.properties.cluster_id, markers)
   }
 
   render() {
